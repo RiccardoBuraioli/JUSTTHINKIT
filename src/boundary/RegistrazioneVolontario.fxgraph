@@ -1,0 +1,9 @@
+package boundary
+
+import javafx.scene.layout.AnchorPane
+
+component RegistrazioneVolontario {
+	AnchorPane {
+		//TODO Add Nodes
+	}
+}

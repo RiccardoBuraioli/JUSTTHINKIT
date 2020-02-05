@@ -1,0 +1,12 @@
+
+
+-The system shall provide the User with the possibility to create donation packages*. 
+
+-The system shall provide the Shop with the possibility to create an event** for the Caritas.
+
+-The system shall provide the Caritas the possibility to decide, among the various offers, which event to include in its bulletin board.
+
+
+*Donation package is a collection of objects (clothes, food, etc.).
+
+**The event is a collection of user funds for the donation of services by a shop to caritas.

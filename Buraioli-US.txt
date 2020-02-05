@@ -1,0 +1,10 @@
+
+As a Shop, I would like to propose events at a favorable price for caritas.
+
+As a User, I want to know when Caritas wants to withdraw my donation, so that I can be at home that day.
+
+As a Caritas, I would like to be able to publish my needs in order to have concrete help.
+
+
+
+

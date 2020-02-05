@@ -1,0 +1,3 @@
+1. The system shall notify a volunteer user when it gets accepted for the working shift it applied for.
+2. The system shall provide a public showcase where users can post comments.
+3. The system shall provide Caritas Organization positions within a defined radius from the volunteer user position.

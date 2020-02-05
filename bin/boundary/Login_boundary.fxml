@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="Login_Registration_menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login_Controller">
+   <children>
+      <AnchorPane layoutX="352.0" layoutY="78.0" prefHeight="287.0" prefWidth="200.0">
+         <children>
+            <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sei già un utente?">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <TextField id="tf_user" fx:id="user" layoutX="26.0" layoutY="80.0" promptText="Username" />
+            <TextField id="tf_passw" fx:id="passw" layoutX="26.0" layoutY="144.0" promptText="Password" />
+            <HBox layoutX="67.0" layoutY="211.0">
+               <children>
+                  <Button id="Button_login" fx:id="Log" mnemonicParsing="false" onAction="#Login" prefHeight="29.0" prefWidth="66.0" text="Login">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+      <Text layoutX="79.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to JustThinkIt" AnchorPane.bottomAnchor="329.2080078125" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="78.5283203125" AnchorPane.topAnchor="13.5986328125">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Text>
+      <Separator layoutX="340.0" layoutY="104.0" orientation="VERTICAL" prefHeight="240.0" prefWidth="12.0" />
+      <Button id="Button_registration" fx:id="Reg" layoutX="91.0" layoutY="295.0" mnemonicParsing="false" onAction="#Registration" prefHeight="29.0" prefWidth="121.0" text="Registrazione">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Text layoutX="14.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vuoi dare una mano ma non sai come fare?" wrappingWidth="316.1953076720238">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Questa applicazione è per scopi benefici, non è necessario l'inserimento della carta di credito per la registrazione!" wrappingWidth="316.1953125">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
