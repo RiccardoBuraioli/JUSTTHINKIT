@@ -10,7 +10,7 @@ public class CaritasRepository {
     private final Connector connector;
     private static final String SUCCESS = "Voce modificata con successo!";
     private static final String FAILED = "Operazione non riuscita.";
-    private static final String PASSWORD = "Password";
+    private static final String PASSWORDFIELD = "Password";
 
     public CaritasRepository(Connector connector) {
         this.connector = connector;
@@ -67,7 +67,7 @@ public class CaritasRepository {
             while (rs.next()) {
 
                 String nomeCaritas = rs.getString("NomeCaritas");
-                String password = rs.getString(PASSWORD);
+                String password = rs.getString(PASSWORDFIELD);
                 String indirizzoCaritas = rs.getString("IndirizzoCaritas");
                 String tipologia = rs.getString("Tipologia");
                 String recapitoTel = rs.getString("RecapitoTel");
@@ -100,7 +100,7 @@ public class CaritasRepository {
             while (rs.next()) {
 
                 carUsr.setNomeCaritas(rs.getString("NomeCaritas"));
-                carUsr.setPassword(rs.getString(PASSWORD));
+                carUsr.setPassword(rs.getString(PASSWORDFIELD));
                 carUsr.setIndirizzoCaritas(rs.getString("IndirizzoCaritas"));
                 carUsr.setTipologia(rs.getString("Tipologia"));
                 carUsr.setRecapitoTelefonico(rs.getString("RecapitoTel"));
@@ -130,7 +130,7 @@ public class CaritasRepository {
             res = pstmt.executeQuery();
 
             while (res.next()){
-                password = res.getString(PASSWORD);
+                password = res.getString(PASSWORDFIELD);
             }
         } catch (SQLException ex){
             System.out.println(ex.getMessage());
@@ -325,7 +325,7 @@ public class CaritasRepository {
     public void printCarsInTab(List<CaritasUser> caritasUsers){
         String s1 = "ID";
         String s2 = "Nome Caritas";
-        String s3 = PASSWORD;
+        String s3 = PASSWORDFIELD;
         String s4 = "Indirizzo Caritas";
         String s5 = "Tipologia";
         String s6 = "RecapitoTel";
