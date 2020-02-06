@@ -11,6 +11,8 @@ public class CaritasRepository {
     private static final String SUCCESS = "Voce modificata con successo!";
     private static final String FAILED = "Operazione non riuscita.";
     private static final String PASSWORDFIELD = "Password";
+    private static final String TIPOLOGIA = "Tipologia";
+    private static final String RECAPITOTEL = "RecapitoTel";
 
     public CaritasRepository(Connector connector) {
         this.connector = connector;
@@ -69,8 +71,8 @@ public class CaritasRepository {
                 String nomeCaritas = rs.getString("NomeCaritas");
                 String password = rs.getString(PASSWORDFIELD);
                 String indirizzoCaritas = rs.getString("IndirizzoCaritas");
-                String tipologia = rs.getString("Tipologia");
-                String recapitoTel = rs.getString("RecapitoTel");
+                String tipologia = rs.getString(TIPOLOGIA);
+                String recapitoTel = rs.getString(RECAPITOTEL);
                 String email = rs.getString("Email");
 
                 CaritasUser carUsr = new CaritasUser(nomeCaritas, password, indirizzoCaritas, tipologia, recapitoTel, email);
@@ -102,8 +104,8 @@ public class CaritasRepository {
                 carUsr.setNomeCaritas(rs.getString("NomeCaritas"));
                 carUsr.setPassword(rs.getString(PASSWORDFIELD));
                 carUsr.setIndirizzoCaritas(rs.getString("IndirizzoCaritas"));
-                carUsr.setTipologia(rs.getString("Tipologia"));
-                carUsr.setRecapitoTelefonico(rs.getString("RecapitoTel"));
+                carUsr.setTipologia(rs.getString(TIPOLOGIA));
+                carUsr.setRecapitoTelefonico(rs.getString(RECAPITOTEL));
                 carUsr.setEmail(rs.getString("Email"));
             }
 
@@ -327,8 +329,8 @@ public class CaritasRepository {
         String s2 = "Nome Caritas";
         String s3 = PASSWORDFIELD;
         String s4 = "Indirizzo Caritas";
-        String s5 = "Tipologia";
-        String s6 = "RecapitoTel";
+        String s5 = TIPOLOGIA;
+        String s6 = RECAPITOTEL;
         String s7 =  "Email";
 
 
