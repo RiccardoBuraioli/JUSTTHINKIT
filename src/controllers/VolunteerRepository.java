@@ -154,7 +154,7 @@ public class VolunteerRepository {
                 System.out.println(e.getMessage());
             }
         }
-
+        volunteerUser.setID(volunteerID);
         return volunteerID;
     }
 
@@ -326,7 +326,7 @@ public class VolunteerRepository {
     }
 
 
-    public void deleteVolunteer(int id) {
+    public int deleteVolunteer(int id) {
         String sql = "DELETE FROM volontari where ID=?";
         int deletedRec;
 
@@ -336,12 +336,18 @@ public class VolunteerRepository {
             stmt.setInt(1, id);
             deletedRec = stmt.executeUpdate();
 
-            if (deletedRec == 1) System.out.println("Volontario ID " + id + ", rimosso con successo!");
-
-            else System.out.println("ID non trovato.");
+            if (deletedRec == 1) {
+            	System.out.println("Volontario ID " + id + ", rimosso con successo!");
+            	return 0;
+            }
+            else {
+            	System.out.println("ID non trovato.");
+            	return 0;
+            }
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+            return 0;
         }
     }
 

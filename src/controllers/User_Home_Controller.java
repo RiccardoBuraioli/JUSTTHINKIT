@@ -27,6 +27,8 @@ import javafx.stage.Stage;
 public class User_Home_Controller implements Initializable{
 	
 	VolunteerUser currentUser;
+	VolunteerRepository vrep;
+	Connector connector;
 	
 	//Images slideshow
 	private Image img1 = new Image("file:/C:/Users/Admin/Documents/Java/JustThinkIt/src/resources/images/caritas1.jpg");
@@ -76,7 +78,43 @@ public class User_Home_Controller implements Initializable{
 
     @FXML
     void deleteAccountButtonPressed(ActionEvent event) {
-
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Elimina account");
+    	alert.setHeaderText("Sei sicuro di voler eliminare l'account?");
+    	alert.setContentText("I tuoi dati verrano eliminati");
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    		
+    		int id = currentUser.getID();
+    		System.out.println(id);
+        	int resultAction = vrep.deleteVolunteer(id);
+        	if (resultAction == 0) {
+        		
+        		try {
+        			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Login_boundary.fxml"));
+        			Parent root = loader.load();
+        			Stage home = (Stage) logoutButton.getScene().getWindow();
+        			home.setScene(new Scene(root, 600, 385));
+        			home.show();
+        		} catch (IOException e) {
+        			e.printStackTrace();
+        		}
+        		
+        		
+        	} else {
+        		Alert alert2 = new Alert(AlertType.WARNING);
+            	alert2.setTitle("Impossibile eliminare account");
+            	alert2.setHeaderText("C'è un errore nell'eliminazione dell'account");
+            	alert2.setContentText("Riprova più tardi");
+        	}
+    		
+    		
+        	
+    	} else {
+    	    //nothing
+    	}
+    	
+    	
     }
 
     @FXML
@@ -171,6 +209,8 @@ public class User_Home_Controller implements Initializable{
     
     public void initData(VolunteerUser user) {
     	setCurrentUser(user);
+    	connector = new Connector("jdbc:mysql://127.0.0.1:3306/JusthinkIt", "root", "password");
+    	vrep = new VolunteerRepository(connector);
     	nomeCognome.setText(user.getNome() + " "+ user.getCognome());
     	final Circle clip = new Circle();
     	clip.setCenterX(25);

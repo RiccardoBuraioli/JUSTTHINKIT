@@ -81,7 +81,7 @@ public class Login_Controller {
     		    		
     	}
     	else {
-    		System.out.println("Login Error");
+    		
     	}	
 
     }
