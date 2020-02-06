@@ -1,8 +1,0 @@
-User Stories
-
--As a user I want to change my personal data in order to give Caritas correct informations about me.
--As a Caritas I want to change my association’s data in order to give users correct information.
--As a shop I want to find Caritas on a map, with a dynamic range, so I see where is located.
--As a shop I want to see if a Caritas accepts or decline my offer, so I can prepare or dismiss the event.
--As a shop I want to contact a Caritas so I can offer them events.
--As a Caritas I want to write on my message board so users can read what I need.

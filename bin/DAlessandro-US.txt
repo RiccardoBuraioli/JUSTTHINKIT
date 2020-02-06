@@ -1,8 +1,0 @@
-As a power user, I want to ban fake user profiles, so that I can keep the system clean and fair.
-As a Caritas user, I want to apply on the system for a new profile specifying my webpage and contact information, so that I can be qualified to benefit of the system’s services. As a Volunteer user, I want to apply on the system for a new profile specifying my email and my registry information, so that I can be qualified to benefit of the system’s services.
-As a Caritas user, I want to post on the showcase the request for needed goods, so that a volunteer can buy them to help us.
-As a Volunteer user, I want to set up an online shop, so that I can buy the goods that a Caritas needs.
-As a Volunteer user, I want to visualize the showcase, so that I can read the requests.
-As a Caritas user, I want to visualize the showcase, so that I can post my requests. As a Caritas user, I want to post the position for a working shift, so that a volunteer can apply for it. As a Volunteer user, I want to apply for a shift work, so that I get accepted for it.
-As a Caritas user, I want to approve a volunteer user for its application to the available shift, so that I can have safe and organized decisions for my organization.
-As a Volunteer user, I want to post comment on the showcase, so that I can stay organized with other users.

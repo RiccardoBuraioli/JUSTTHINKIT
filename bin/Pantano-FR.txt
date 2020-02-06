@@ -1,5 +1,0 @@
-Functional Requirements
-
-The system shall allow user, Caritas  and shops to change their personal data.
-The system shall provide a map in which users and shops can find Caritas, based on their current position, with a dynamic range.
-The system shall allow a shop the creation of an event.

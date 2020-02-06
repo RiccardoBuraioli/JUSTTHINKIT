@@ -1,3 +1,5 @@
+package application;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -8,7 +10,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("view/Login_boundary.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Login_boundary.fxml"));
 			primaryStage.setScene(new Scene(root, 600, 385));
 			primaryStage.setResizable(false);
 			primaryStage.show();
