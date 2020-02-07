@@ -4,6 +4,7 @@ import java.io.IOException;
 
 
 import entity.Login;
+import controllers.VolunteerRepository;
 import entity.VolunteerUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +46,6 @@ public class Login_Controller {
     		if (login.getTableUser() == 1) {
     			
     			VolunteerRepository vrep = new VolunteerRepository(connector);
-    			
     			int userID = login.returnID(usernameField.getText(), 1);
     			if (userID == -1) {
     				System.out.println("Errore nel ritornare l'ID");
