@@ -1,22 +1,31 @@
 package connector;
 
-	import java.sql.Connection;
-	import java.sql.DriverManager;
-	import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-	public class Connector {
-	    private static Connection connection;
 
-	    public static Connection dbConnect() {
-	        if(connection==null) {
-	            try {
-	                Class.forName("com.mysql.cj.jdbc.Driver");
-	                return connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/JustThinkIt?useLegacyDatetimeCode=false&serverTimezone=Europe/Rome&useSSL=false", "root", "password");
-	            } catch (ClassNotFoundException | SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }else
-	            return connection;
-	        return null;
-	    }
-	}
+public class Connector {
+
+    private  String host;
+    private  String user;
+    private  String password;
+
+    public Connector(String host, String user, String password) {
+        this.host = host;
+        this.user = user;
+        this.password = password;
+    }
+
+    //tipo di ritorno: Connection.class obj
+    public Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(host, user, password);
+//        if (connection != null) {
+//            System.out.println("Connected to the database!");
+//        } else {
+//            System.out.println("Failed to make connection!");
+//        }
+    }
+
+
+}

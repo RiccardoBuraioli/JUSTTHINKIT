@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <children>
+      <AnchorPane prefHeight="386.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="226.0" layoutY="22.0" text="Richieste Volontariato">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="19.0" mnemonicParsing="false" text="Indietro" />
+            <ScrollPane layoutY="60.0" prefHeight="328.0" prefWidth="600.0">
+               <content>
+                  <TableView prefHeight="502.0" prefWidth="490.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Nome" />
+                      <TableColumn prefWidth="75.0" text="Cognome" />
+                        <TableColumn prefWidth="112.0" text="Data Di Nascita" />
+                        <TableColumn prefWidth="112.0" text="Stato richiesta" />
+                        <TableColumn prefWidth="112.0" text="Dettaglio" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
