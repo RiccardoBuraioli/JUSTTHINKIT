@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Dao.VolunteerRepository;
+import connector.Connector;
 import entity.VolunteerUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -21,7 +24,7 @@ public class Registrazione_Volontario_Controller implements Initializable {
 	
 	TextField[] textFields;
 
-    @FXML
+	@FXML
     private TextField nomeVol;
 
     @FXML
@@ -31,13 +34,7 @@ public class Registrazione_Volontario_Controller implements Initializable {
     private TextField cittaVol;
 
     @FXML
-    private TextField codiceFiscVol;
-
-    @FXML
     private TextField cognomeVol;
-
-    @FXML
-    private TextField provinciaVol;
 
     @FXML
     private TextField viaVol;
@@ -59,10 +56,15 @@ public class Registrazione_Volontario_Controller implements Initializable {
 
     @FXML
     private PasswordField confermaPassVol;
-    
+
     @FXML
     private Text passwordMatch;
 
+    @FXML
+    private TextField capVol;
+
+    @FXML
+    private DatePicker dataNascita;
 
     @FXML
     void backButtonVolPressed(ActionEvent event) {
@@ -84,12 +86,23 @@ public class Registrazione_Volontario_Controller implements Initializable {
     void registraVolontarioButtonPressed(ActionEvent event) {
     	
     	if (checker() == 0) {
-    		Connector connector = new Connector("jdbc:mysql://127.0.0.1:3306/justhinkit", "root", "password");
+    		Connector connector = new Connector("jdbc:mysql://127.0.0.1:3306/justthinkit", "root", "password");
     		//Crea nuova istanza VolunteerUser?? 	
-        	VolunteerUser newUser = new VolunteerUser(nomeVol.getText(), cognomeVol.getText(), passwordVol.getText(), viaVol.getText(), telVol.getText(), emailVol.getText(), "CartaDiCredito");
+        	VolunteerUser newUser = new VolunteerUser();
         	VolunteerRepository vrep = new VolunteerRepository(connector);
-        	int id = vrep.insertVolunteer(newUser);
-        	newUser.setID(id);
+        	newUser.setEmail(emailVol.getText());
+        	newUser.setCap(capVol.getText());
+        	newUser.setCitta(cittaVol.getText());
+        	newUser.setCivico(civicoVol.getText());
+        	newUser.setCartaDiCredito(null);
+        	newUser.setIndirizzoVolontario(viaVol.getText());
+        	newUser.setPassword(passwordVol.getText());
+        	newUser.setRecapitoTel(telVol.getText());
+        	newUser.setDataNascita(java.sql.Date.valueOf(dataNascita.getValue()));
+        	newUser.setNome(nomeVol.getText());
+        	newUser.setCognome(cognomeVol.getText());
+        	vrep.insertVolunteer(newUser);
+        	vrep.insertVolunteer2(newUser);
         	
         	//Manda alla home dopo la registrazione
         	try {
@@ -138,7 +151,7 @@ public class Registrazione_Volontario_Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		passwordMatch.setVisible(false);
-		textFields = new TextField[] {nomeVol,emailVol,cittaVol,codiceFiscVol,cognomeVol,provinciaVol,civicoVol,viaVol,telVol,passwordVol,confermaPassVol};
+		textFields = new TextField[] {nomeVol,emailVol,cittaVol,cognomeVol,civicoVol,viaVol,telVol,passwordVol,confermaPassVol};
 		//Per rendere opzionale un campo basta rimuoverlo da questa lista
 	}
 

@@ -4,31 +4,29 @@ public class ShopUser {
 
     private int id;
     private String nomeShop;
+    private String email;
     private String password;
     private String indirizzoShop;
+    private String civico;
+    private String citta;
+    private String cap;
     private String tipologia;
     private String recapitoTelefonico;
-    private String email;
 
+    private static final int SHOP_CODE = 3;
+    private static final String TABLE_NAME = "negozi";
 
     public ShopUser() {
+        //Costruttore Vuoto, troppi attributi da istanziare
     }
 
-    public ShopUser(String nomeShop, String password, String indirizzoShop, String tipologia, String recapitoTelefonico, String email) {
-        this.nomeShop = nomeShop;
-        this.password = password;
-        this.indirizzoShop = indirizzoShop;
-        this.tipologia = tipologia;
-        this.recapitoTelefonico = recapitoTelefonico;
-        this.email = email;
-    }
 
     public int getID() {
         return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0) this.id = id;
     }
 
     public String getNomeShop() {
@@ -37,6 +35,14 @@ public class ShopUser {
 
     public void setNomeShop(String nomeShop) {
         this.nomeShop = nomeShop;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -55,6 +61,30 @@ public class ShopUser {
         this.indirizzoShop = indirizzoShop;
     }
 
+    public String getCivico() {
+        return civico;
+    }
+
+    public void setCivico(String civico) {
+        this.civico = civico;
+    }
+
+    public String getCitta() {
+        return citta;
+    }
+
+    public void setCitta(String citta) {
+        this.citta = citta;
+    }
+
+    public String getCap() {
+        return cap;
+    }
+
+    public void setCap(String cap) {
+        this.cap = cap;
+    }
+
     public String getTipologia() {
         return tipologia;
     }
@@ -71,21 +101,27 @@ public class ShopUser {
         this.recapitoTelefonico = recapitoTelefonico;
     }
 
-    public String getEmail() {
-        return email;
+    public static int getShopCode() {
+        return SHOP_CODE;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public static String getTableName() {
+        return TABLE_NAME;
     }
 
     @Override
     public String toString() {
         return "ShopUser{" +
-                "nomeShop='" + nomeShop + '\'' +
+                "id=" + id +
+                ", nomeShop='" + nomeShop + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", indirizzoShop='" + indirizzoShop + '\'' +
-                ", tipo='" + tipologia + '\'' +
-                ", recapito='" + recapitoTelefonico + '\'' +
+                ", civico='" + civico + '\'' +
+                ", citta='" + citta + '\'' +
+                ", cap='" + cap + '\'' +
+                ", tipologia='" + tipologia + '\'' +
+                ", recapitoTelefonico='" + recapitoTelefonico + '\'' +
                 '}';
     }
 }

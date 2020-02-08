@@ -1,10 +1,12 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
-
+import Dao.Login_Dao;
+import Dao.VolunteerRepository;
+import connector.Connector;
 import entity.Login;
-import controllers.VolunteerRepository;
 import entity.VolunteerUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +18,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Login_Controller {
+	
+	private static final Logger log = Logger.getLogger(Login_Controller.class.getName());
 	
 	@FXML
     private TextField usernameField;
@@ -29,30 +33,33 @@ public class Login_Controller {
     @FXML
     private Button registerButton;
     
-   
     @FXML
     void loginPressed(ActionEvent event) {
+    	String Email = usernameField.getText();
+    	String Passw = passwordField.getText();
     	
-    	Connector connector = new Connector("jdbc:mysql://127.0.0.1:3306/JusthinkIt", "root", "password");
-    	Login login = new Login(connector);
-    	int loginResult = login.logger(usernameField.getText(), passwordField.getText());
-    	if (loginResult>0) {
+    	//Connettore non deve essere qui
+    	
+    	//Connector connector = new Connector("jdbc:mysql://127.0.0.1:3306/JustthinkIt", "root", "password");
+    	Login_Dao login = new Login_Dao();
+    	boolean loginResult = login.checkEmail(Email, Passw);
+    	String Codice = Login.tableUser;
+    	if (loginResult) {
     		
     		//OK MANDA ALLA HOME CORRETTA
-    		System.out.println("Login succesfull");
-    		System.out.println(login.getTableUser());
     		
     		//Volontario
-    		if (login.getTableUser() == 1) {
+    		if (Codice.contentEquals("Volontario")) {
     			
-    			VolunteerRepository vrep = new VolunteerRepository(connector);
-    			int userID = login.returnID(usernameField.getText(), 1);
+    			Connector connectorV = new Connector("jdbc:mysql://127.0.0.1:3306/JustthinkIt", "root", "password");
+    			VolunteerRepository vrep = new VolunteerRepository(connectorV);
+    			
+    			int userID = Login_Dao.returnID(Email,Codice);
     			if (userID == -1) {
-    				System.out.println("Errore nel ritornare l'ID");
+    				log.warning("Errore nel ritornare l'ID");
     			}
     			
-    			VolunteerUser loggedUser = vrep.getVolunteerByID(login.returnID(usernameField.getText(), 1));
-    			System.out.println(loggedUser.getCognome());
+    			VolunteerUser loggedUser = vrep.getVolunteerByID(userID);
     			
     			//Manda alla home user
     			try {
@@ -70,18 +77,19 @@ public class Login_Controller {
     		}
     		
     		//Caritas
-    		else if (login.getTableUser() == 2) {
+    		else if (Codice.contentEquals("Caritas")) {
     			
     		}
     		
     		//Negozio
-    		else if (login.getTableUser() == 3) {
+    		else if (Codice.contentEquals("Negozio")) {
     			
     		}
+    		else System.out.println("Codice = " + Codice);
     		    		
     	}
     	else {
-    		
+    		System.out.println("Login Error");
     	}	
 
     }

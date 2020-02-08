@@ -78,7 +78,7 @@ public class Profile_Controller {
     public void initData(VolunteerUser user) {
     	setCurrentUser(user);
     	emailEdit.setText(user.getEmail());
-    	cittaEdit.setText(user.getIndirizzo());
+    	cittaEdit.setText(user.getIndirizzoVolontario());
     	telefonoEdit.setText(user.getRecapitoTel());
     	nomeCognomeEdit.setText(user.getNome() + " " + user.getCognome());
     }
